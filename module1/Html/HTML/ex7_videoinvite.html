@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cooking Event Promo</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fffaf0;
+      margin: 40px;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h2 {
+      color: #b22222;
+      margin-bottom: 10px;
+    }
+
+    video {
+      width: 100%;
+      max-height: 400px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    #statusMessage {
+      margin-top: 12px;
+      color: green;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    form {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>🍲 You're Invited: Cooking Masterclass Promo</h2>
+
+    <video id="cookingVideo" controls oncanplay="showVideoStatus()">
+      <source src="ex7promo.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <div id="statusMessage"></div>
+
+    <form id="rsvpForm">
+      <h3>RSVP Form</h3>
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" />
+    </form>
+  </div>
+
+  <script>
+    function showVideoStatus() {
+      document.getElementById('statusMessage').textContent = "✅ Cooking video ready to play!";
+    }
+
+    let isFormFilled = false;
+
+    document.getElementById('name').addEventListener('input', function () {
+      isFormFilled = this.value.trim().length > 0;
+    });
+
+    window.onbeforeunload = function () {
+      if (isFormFilled) {
+        return "You have unsaved changes. Are you sure you want to leave the page?";
+      }
+    };
+  </script>
+
+</body>
+</html>
+

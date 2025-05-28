@@ -1,0 +1,190 @@
+
+<!-- Exercise 1: Create the HTML5 Base Template -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Local Community Event Portal</title>
+  <style>
+    /* Styling for welcome banner */
+    #welcomeBanner {
+      background-color: lightblue;
+      padding: 10px;
+      text-align: center;
+    }
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+    }
+    .gallery-img {
+      border: 2px solid black;
+      width: 150px;
+      height: 100px;
+    }
+    form {
+      margin: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    video {
+      width: 100%;
+      max-width: 400px;
+    }
+  </style>
+  <script>
+    // Event Handling
+    function validatePhone(element) {
+      const pattern = /^[0-9]{10}$/;
+      if (!pattern.test(element.value)) {
+        alert("Please enter a valid 10-digit phone number.");
+      }
+    }
+
+    function showFee(select) {
+      document.getElementById('feeDisplay').textContent = "Fee: $" + select.value;
+      localStorage.setItem('preferredEvent', select.selectedIndex);
+    }
+
+    function confirmSubmission() {
+      document.getElementById('formOutput').value = "Thank you for registering!";
+    }
+
+    function enlargeImage(img) {
+      img.style.width = "300px";
+    }
+
+    function countChars(textarea) {
+      document.getElementById('charCount').textContent = textarea.value.length + " characters";
+    }
+
+    function videoReady() {
+      document.getElementById('videoStatus').textContent = "Video ready to play";
+    }
+
+    window.onbeforeunload = function () {
+      if (document.getElementById('name').value !== "") {
+        return "Are you sure you want to leave without submitting the form?";
+      }
+    }
+
+    function findLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            document.getElementById('geoOutput').textContent = 
+              `Latitude: ${pos.coords.latitude}, Longitude: ${pos.coords.longitude}`;
+          },
+          (err) => {
+            document.getElementById('geoOutput').textContent = "Error: " + err.message;
+          },
+          { enableHighAccuracy: true, timeout: 5000 }
+        );
+      } else {
+        document.getElementById('geoOutput').textContent = "Geolocation is not supported.";
+      }
+    }
+
+    function loadPreferences() {
+      const index = localStorage.getItem('preferredEvent');
+      if (index) document.getElementById('eventType').selectedIndex = index;
+    }
+
+    function clearPreferences() {
+      localStorage.clear();
+      sessionStorage.clear();
+      alert("Preferences cleared!");
+    }
+
+    window.onload = loadPreferences;
+  </script>
+</head>
+<body>
+
+<!-- Exercise 2: Navigation and Linking -->
+<!-- Navigation -->
+<nav>
+  <a href="#home">Home</a> |
+  <a href="#events">Events</a> |
+  <a href="#contact">Contact</a> |
+  <a href="help.html" target="_blank">Help</a>
+</nav>
+
+<!-- Welcome Banner -->
+<div id="welcomeBanner">
+  Welcome to the <span class="highlight">Community Event Portal</span>!
+  <span style="color: red; font-weight: bold;">Special offer today!</span>
+</div>
+
+<!-- Exercise 3: Welcome Message with Styling and ID/Class -->
+<!-- Main -->
+<main id="home">
+  <h2>Community Event Gallery</h2>
+  <table border="1">
+    <caption>Highlights from Past Events</caption>
+    <tr>
+      <td><img src="event1.jpg" alt="Event 1" title="Music Night" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+      <td><img src="event2.jpg" alt="Event 2" title="Food Fest" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+      <td><img src="event3.jpg" alt="Event 3" title="Charity Run" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+    </tr>
+    <tr>
+      <td><img src="event4.jpg" alt="Event 4" title="Book Fair" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+      <td><img src="event5.jpg" alt="Event 5" title="Art Show" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+      <td><img src="event6.jpg" alt="Event 6" title="Tech Meetup" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+    </tr>
+  </table>
+</main>
+
+<!-- Event Registration -->
+<section id="events">
+  <h2>Register for an Event</h2>
+  <form onsubmit="confirmSubmission(); return false;">
+    <label>Name: <input type="text" id="name" placeholder="Your Name" required autofocus></label><br><br>
+    <label>Email: <input type="email" placeholder="Your Email" required></label><br><br>
+    <label>Date: <input type="date" required></label><br><br>
+    <label>Phone: <input type="text" onblur="validatePhone(this)"></label><br><br>
+    <label>Event Type: 
+      <select id="eventType" onchange="showFee(this)">
+        <option value="10">Music</option>
+        <option value="5">Food</option>
+        <option value="0">Free Workshop</option>
+      </select>
+    </label> <span id="feeDisplay"></span><br><br>
+    <label>Message:<br><textarea onkeyup="countChars(this)"></textarea></label>
+    <div id="charCount">0 characters</div><br>
+    <button type="submit" onclick="confirmSubmission()">Submit</button>
+    <output id="formOutput"></output>
+  </form>
+</section>
+
+<!-- Video Section -->
+<section>
+  <h2>Watch Our Promo</h2>
+  <video controls oncanplay="videoReady()">
+    <source src="promo.mp4" type="video/mp4">
+    Your browser does not support video.
+  </video>
+  <div id="videoStatus"></div>
+</section>
+
+<!-- Preferences -->
+<section>
+  <h2>Preferences</h2>
+  <button onclick="clearPreferences()">Clear Preferences</button>
+</section>
+
+<!-- Exercise 9: Geolocation for Event Mapping -->
+<!-- Geolocation -->
+<section>
+  <h2>Find Nearby Events</h2>
+  <button onclick="findLocation()">Find Nearby Events</button>
+  <div id="geoOutput"></div>
+</section>
+
+<!-- Contact -->
+<footer id="contact">
+  <h3>Contact Us</h3>
+  <p>Email: community@cityportal.com</p>
+</footer>
+
+</body>
+</html>

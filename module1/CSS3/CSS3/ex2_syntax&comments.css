@@ -1,0 +1,36 @@
+/* ===========================================
+   Styles for Main Call-To-Action (CTA) Button
+   Applies to buttons prompting user actions
+   =========================================== */
+.cta-button {
+  background-color: #007BFF; /* Bootstrap Blue */
+  color: white;             /* White text for contrast */
+  padding: 12px 24px;       /* Vertical and horizontal padding */
+  font-size: 16px;          /* Readable font size */
+  border: none;             /* Remove default border */
+  border-radius: 4px;       /* Slightly rounded corners */
+  cursor: pointer;          /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+/* Hover effect for CTA button */
+.cta-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* ===========================================
+   Style for Navigation Bar Links
+   Links in the main site navigation bar
+   =========================================== */
+.nav-link {
+  color: #333333;           /* Dark gray text */
+  text-decoration: none;    /* Remove underline */
+  padding: 10px 15px;       /* Spacing around links */
+  font-weight: 600;         /* Semi-bold text */
+}
+
+/* Hover style for navigation links */
+.nav-link:hover {
+  color: #007BFF;           /* Blue color on hover */
+  text-decoration: underline; /* Underline on hover */
+}

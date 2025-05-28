@@ -1,0 +1,27 @@
+
+    /* Media Query for screens smaller than 768px */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        margin: 10px 0;
+        font-size: 1rem;
+      }
+
+      h1 {
+        font-size: 6vw;
+      }
+
+      .event-image {
+        max-width: 90vw; /* use viewport width */
+      }
+
+      p {
+        font-size: 1rem;
+        padding: 0 10px;
+      }
+    }
+ 

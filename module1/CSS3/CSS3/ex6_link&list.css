@@ -1,0 +1,61 @@
+/* ===========================================
+   6. Link and List Styling
+   =========================================== */
+
+/* Link styles */
+a:link {
+  color: #2980b9;          /* normal link color */
+  text-decoration: none;
+}
+
+a:visited {
+  color: #8e44ad;          /* visited link color */
+}
+
+a:hover {
+  color: #e67e22;          /* orange on hover */
+  text-decoration: underline;
+}
+
+a:active {
+  color: #c0392b;          /* dark red when active */
+  text-decoration: none;
+}
+
+/* List styling */
+
+/* For unordered lists */
+ul {
+  list-style-type: disc;   /* default bullet */
+  list-style-position: inside; /* bullets inside padding */
+  margin-left: 20px;
+  padding-left: 0;
+}
+
+/* For navigation menu - remove bullets */
+nav ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;            /* horizontal nav */
+  gap: 15px;
+}
+
+/* Nav list items spacing */
+nav ul li {
+  padding: 5px 10px;
+}
+
+/* Optional: style nav links inside nav */
+nav ul li a {
+  color: #34495e;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #2980b9;
+  color: white;
+}

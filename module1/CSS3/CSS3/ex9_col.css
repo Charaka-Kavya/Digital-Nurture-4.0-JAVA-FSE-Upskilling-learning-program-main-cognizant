@@ -1,0 +1,18 @@
+
+    /* Container with multiple columns */
+    .newsArticle {
+      column-count: 2;             /* Number of columns */
+      column-gap: 30px;            /* Space between columns */
+      column-rule: 1px solid gray; /* Vertical line between columns */
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 40px auto;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    

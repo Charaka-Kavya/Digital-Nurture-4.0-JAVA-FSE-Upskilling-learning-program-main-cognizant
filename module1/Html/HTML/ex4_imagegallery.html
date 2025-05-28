@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Exercise 4 - Image Gallery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-spacing: 20px;
+    }
+
+    td {
+      text-align: center;
+    }
+
+    img.border-img {
+      border: 2px solid #007bff;
+      width: 150px;
+      height: 100px;
+      border-radius: 8px;
+      transition: transform 0.2s;
+    }
+
+    img.border-img:hover {
+      transform: scale(1.1);
+    }
+
+    p {
+      margin-top: 5px;
+      font-weight: bold;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Community Events Gallery</h2>
+
+  <table>
+    <tr>
+      <td>
+        <img src="ex4event1.jpg" alt="Event 1" title="Community Cleanup" class="border-img" />
+        <p>Community Cleanup</p>
+      </td>
+      <td>
+        <img src="ex4event2.jpg" alt="Event 2" title="Music Festival" class="border-img" />
+        <p>Music Festival</p>
+      </td>
+      <td>
+        <img src="ex4event3.jpg" alt="Event 3" title="Art Fair" class="border-img" />
+        <p>Art Fair</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="ex4event4.jpg" alt="Event 4" title="Yoga Session" class="border-img" />
+        <p>Yoga Session</p>
+      </td>
+      <td>
+        <img src="ex4event5.jpg" alt="Event 5" title="Book Reading" class="border-img" />
+        <p>Book Reading</p>
+      </td>
+      <td>
+        <img src="ex4event6.jpg" alt="Event 6" title="Tech Workshop" class="border-img" />
+        <p>Tech Workshop</p>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!-- Exercise 1: HTML Base Template -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Local Community Event Portal</title>
+
+  <!-- Exercise 1: Internal style -->
+  <style>
+    /* Exercise 1: Internal styling */
+    body {
+      background-color: #f0f8ff;
+      font-family: 'Roboto', sans-serif;
+    }
+    /* Exercise 4: Gradient header */
+    header {
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+  </style>
+
+  <!-- Exercise 5: Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <ul class="nav-list">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Exercise 1: Inline style -->
+  <h1 style="color: red;">Welcome to the Community Portal</h1>
+
+  <header id="mainHeader">
+    <h2>Community Events This Month</h2>
+  </header>
+
+  <!-- Exercise 3 & 8: Event Cards -->
+  <section class="eventCard">
+    <h3>Park Cleanup</h3>
+    <p>Join us to clean the local park.</p>
+  </section>
+  <section class="eventCard">
+    <h3>Food Drive</h3>
+    <p>Help collect food for families in need.</p>
+  </section>
+
+  <!-- Exercise 6: Lists -->
+  <ul class="bullet-list">
+    <li>Bring water</li>
+    <li>Wear gloves</li>
+    <li>Invite friends</li>
+  </ul>
+
+  <!-- Exercise 7: Styled Table -->
+  <table>
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Park Cleanup</td>
+        <td>June 10</td>
+      </tr>
+      <tr>
+        <td>Food Drive</td>
+        <td>June 15</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Exercise 9: Multi-column layout -->
+  <section class="news">
+    <h2>Community News</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis urna a lacus fermentum, a tincidunt magna convallis. Suspendisse et sapien ut sapien cursus fermentum. Integer et quam in urna facilisis feugiat. Nulla facilisi. Curabitur gravida...</p>
+  </section>
+
+  <!-- Exercise 10: Responsive Design -->
+  <footer>
+    <p>Contact us: community@portal.org</p>
+  </footer>
+</body>
+</html>

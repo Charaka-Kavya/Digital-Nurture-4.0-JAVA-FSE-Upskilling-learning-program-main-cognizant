@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Find Nearby Events</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f7ff;
+      padding: 40px;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 30px;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #output {
+      margin-top: 20px;
+      color: #444;
+      font-weight: bold;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>📍 Find Nearby Events</h2>
+    <p>Click the button below to get your current location and find nearby community events.</p>
+    <button onclick="findNearbyEvents()">Find Nearby Events</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function findNearbyEvents() {
+      const output = document.getElementById("output");
+
+      if (!navigator.geolocation) {
+        output.textContent = "Geolocation is not supported by your browser.";
+        return;
+      }
+
+      output.textContent = "Locating...";
+
+      const options = {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 0
+      };
+
+      navigator.geolocation.getCurrentPosition(success, error, options);
+
+      function success(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        output.innerHTML = `✅ Location Found:\nLatitude: ${latitude.toFixed(4)}\nLongitude: ${longitude.toFixed(4)}`;
+      }
+
+      function error(err) {
+        switch (err.code) {
+          case err.PERMISSION_DENIED:
+            output.textContent = "❌ Permission denied. Please allow location access.";
+            break;
+          case err.POSITION_UNAVAILABLE:
+            output.textContent = "❌ Location information is unavailable.";
+            break;
+          case err.TIMEOUT:
+            output.textContent = "❌ The request to get your location timed out.";
+            break;
+          default:
+            output.textContent = "❌ An unknown error occurred.";
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>

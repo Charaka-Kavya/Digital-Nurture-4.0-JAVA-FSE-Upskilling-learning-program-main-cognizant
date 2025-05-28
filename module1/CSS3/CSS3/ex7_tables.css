@@ -1,0 +1,32 @@
+/* ===========================================
+   7. Table Styling
+   =========================================== */
+
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;  /* Remove double borders */
+  text-align: center;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  background-color: #f9f9f9;
+}
+
+th {
+  background-color: #2980b9;
+  color: white;
+  font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ecf0f1;  /* Zebra striping */
+}
+
+tbody tr:hover {
+  background-color: #d1e7fd;  /* Highlight on hover */
+}

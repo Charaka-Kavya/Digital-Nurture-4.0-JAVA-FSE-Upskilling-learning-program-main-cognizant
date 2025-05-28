@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Community Event Registration</title>
+  <style>
+    .error {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 4px;
+    }
+    .success {
+      color: green;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Register for an Event</h1>
+  <form id="registrationForm">
+    <label>
+      Name: <br />
+      <input type="text" name="name" />
+      <div class="error" id="nameError"></div>
+    </label>
+    <br /><br />
+    <label>
+      Email: <br />
+      <input type="email" name="email" />
+      <div class="error" id="emailError"></div>
+    </label>
+    <br /><br />
+    <label>
+      Select Event: <br />
+      <select name="event">
+        <option value="">-- Select an event --</option>
+        <option value="music">Music Festival</option>
+        <option value="art">Art Workshop</option>
+        <option value="cooking">Cooking Class</option>
+      </select>
+      <div class="error" id="eventError"></div>
+    </label>
+    <br /><br />
+    <button type="submit">Register</button>
+  </form>
+
+  <div id="successMessage" class="success"></div>
+
+  <script src="exercise11.js"></script>
+</body>
+</html>
